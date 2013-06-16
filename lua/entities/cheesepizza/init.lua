@@ -33,7 +33,7 @@ function ENT:Initialize()
 end
 
 function ENT:Use(activator)
-	activator:SetHealth(activator:Health()+1)
+	activator:SetHealth(activator:Health()+5)
 	self.Entity:Remove()
 	activator:EmitSound("pizzamod/eating.wav", 50, 100)
 end
