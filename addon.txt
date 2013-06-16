@@ -1,0 +1,9 @@
+"AddonInfo"
+{
+	"name" 		"pizzamod"
+	"version" 	"0.2"
+	"author_name" 	"KoZ"
+	"author_emai"	 ""
+	"author_url" 	"https://github.com/dkoz/pizzamod"
+	"info"		 "Pizza Mod"
+}
