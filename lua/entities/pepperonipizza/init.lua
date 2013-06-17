@@ -1,5 +1,6 @@
 AddCSLuaFile( "shared.lua" )
-include ( "shared.lua" )
+include( "shared.lua" )
+include( "../../config.lua" )
 
 function ENT:SpawnFunction( ply, tr )
 	
@@ -33,8 +34,14 @@ function ENT:Initialize()
 end
 
 function ENT:Use(activator)
-	activator:SetSelfDarkRPVar("Energy", math.Clamp((activator:getDarkRPVar("Energy") or 100) + 25, 0, 100))
-	activator:SetHealth(math.Clamp((activator:Health() or 100) + 10, 0, 100))
+	if PMConfig.enablehunger then
+		activator:SetSelfDarkRPVar("Energy", math.Clamp((activator:getDarkRPVar("Energy") or 100) + 25, 0, 100))
+	end
+	
+	if PMConfig.enablehealth then
+		activator:SetHealth(math.Clamp((activator:Health() or 100) + 10, 0, 100))
+	end
+
 	self.Entity:Remove()
 	activator:EmitSound("pizzamod/eating.wav", 50, 100)
 end
