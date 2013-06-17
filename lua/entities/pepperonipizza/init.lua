@@ -1,5 +1,5 @@
 AddCSLuaFile( "shared.lua" )
-include( 'shared.lua' )
+include ( "shared.lua" )
 
 function ENT:SpawnFunction( ply, tr )
 	
@@ -33,7 +33,7 @@ function ENT:Initialize()
 end
 
 function ENT:Use(activator)
-	activator:SetHealth(activator:Health()+5)
+	activator:SetHealth(math.Clamp((activator:Health() or 100) + 10, 0, 100))
 	self.Entity:Remove()
 	activator:EmitSound("pizzamod/eating.wav", 50, 100)
 end
