@@ -33,6 +33,7 @@ function ENT:Initialize()
 end
 
 function ENT:Use(activator)
+	activator:SetSelfDarkRPVar("Energy", math.Clamp((activator:getDarkRPVar("Energy") or 100) + 25, 0, 100))
 	activator:SetHealth(math.Clamp((activator:Health() or 100) + 10, 0, 100))
 	self.Entity:Remove()
 	activator:EmitSound("pizzamod/eating.wav", 50, 100)
