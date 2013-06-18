@@ -34,12 +34,15 @@ function ENT:Initialize()
 end
 
 function ENT:Use(activator)
+	local energyamount = PMConfig.energyamount
+	local healthamount = PMConfig.healthamount
+
 	if PMConfig.enablehunger then
-		activator:SetSelfDarkRPVar("Energy", math.Clamp((activator:getDarkRPVar("Energy") or 100) + 25, 0, 100))
+		activator:SetSelfDarkRPVar("Energy", math.Clamp((activator:getDarkRPVar("Energy") or 100) + energyamount, 0, 100))
 	end
 	
 	if PMConfig.enablehealth then
-		activator:SetHealth(math.Clamp((activator:Health() or 100) + 10, 0, 100))
+		activator:SetHealth(math.Clamp((activator:Health() or 100) + healthamount, 0, 100))
 	end
 	
 	self.Entity:Remove()
